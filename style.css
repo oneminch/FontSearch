@@ -1,0 +1,42 @@
+@import url("https://fonts.bunny.net/css?family=space-mono:400|space-grotesk:600");
+
+* {
+	font-family: "Space Grotesk", serif;
+}
+
+code {
+	font-family: "Space Mono", monospace !important;
+	font-size: 0.8rem !important;
+	@apply px-3 py-4 mt-2 w-full h-6 font-normal flex items-center justify-start rounded-md bg-blue-gray-800 text-blue-gray-100;
+}
+
+/* Icon */
+.gg-chevron-right-o {
+	box-sizing: border-box;
+	position: relative;
+	display: block;
+	transform: scale(var(--ggs, 1));
+	width: 22px;
+	height: 22px;
+	border: 2px solid;
+	border-radius: 100px;
+	margin-right: 0.75rem;
+}
+
+.gg-chevron-right-o::after {
+	content: "";
+	display: block;
+	box-sizing: border-box;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-bottom: 2px solid;
+	border-right: 2px solid;
+	transform: rotate(-45deg);
+	left: 5px;
+	top: 6px;
+}
+
+details[open] .gg-chevron-right-o {
+	transform: rotate(90deg);
+}
