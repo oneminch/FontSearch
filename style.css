@@ -1,13 +1,13 @@
-@import url("https://fonts.bunny.net/css?family=space-mono:400|space-grotesk:600");
+@import url("https://fonts.bunny.net/css?family=space-mono:400|Inter:400");
 
 * {
-	font-family: "Space Grotesk", serif;
+	font-family: "Inter", serif;
 }
 
 code {
 	font-family: "Space Mono", monospace !important;
-	font-size: 0.8rem !important;
-	@apply px-3 py-4 mt-2 w-full h-6 font-normal flex items-center justify-start rounded-md bg-blue-gray-800 text-blue-gray-100;
+	font-size: 0.9rem !important;
+	@apply px-3 py-4 mt-2 w-full h-6 font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100;
 }
 
 /* Icon */
@@ -21,6 +21,7 @@ code {
 	border: 2px solid;
 	border-radius: 100px;
 	margin-right: 0.75rem;
+	@apply text-blue-gray-500;
 }
 
 .gg-chevron-right-o::after {

@@ -1,0 +1,7 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>Fontsource Search</ShortName>
+	<Description>Search Fontsource fonts</Description>
+	<InputEncoding>UTF-8</InputEncoding>
+	<Image width="16" height="16" type="image/x-icon">https://github.com/fontsource/fontsource/raw/main/website/public/fontsource-logo.png</Image>
+	<Url type="text/html" method="get" template="http://localhost:5173/?q={searchTerms}" />
+</OpenSearchDescription>

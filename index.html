@@ -5,24 +5,29 @@
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<link rel="stylesheet" href="/style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="search"
+			type="application/opensearchdescription+xml"
+			title="Scoop Installer"
+			href="/opensearch.xml" />
 		<title>Font Search</title>
 	</head>
-	<body>
-		<div id="app" class="font-semibold w-2/5 mx-auto text-blue-gray-700">
+	<body class="bg-blue-gray-900 text-blue-gray-300">
+		<div id="app" class="font-semibold w-2/5 mx-auto">
 			<div
-				class="bg-blue-gray-300 text rounded-md text-center w-full mx-auto my-8 p-6">
+				class="bg-blue-gray-800 text rounded-md text-center w-full mx-auto my-8 p-6">
 				Search fonts available on Fontsource directly from your URL or browser.
 			</div>
 			<form class="flex items-center justify-between w-full mx-auto mb-8">
 				<input
 					type="text"
-					class="rounded-md w-full h-10 px-2 mr-2 border-2 border-blue-gray-700 outline-none focus:ring-2 ring-yellow-500 ring-opacity-50 ring-offset-0"
+					class="rounded-md w-full h-10 px-4 mr-2 border-2 border-blue-gray-800 bg-transparent outline-none focus:ring-2 ring-emerald-500 ring-opacity-50 ring-offset-0"
 					placeholder="Enter font name"
 					disabled
 					required />
 				<button
 					type="submit"
-					class="flex items-center justify-center bg-blue-gray-700 h-10 w-10 flex-shrink-0 text-light-50 rounded-md"
+					class="flex items-center justify-center bg-blue-gray-800 h-10 w-10 flex-shrink-0 rounded-md focus:outline-none focus:ring-2 ring-emerald-500 ring-opacity-50 ring-offset-0"
 					disabled>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -40,15 +45,16 @@
 			</form>
 			<div class="output">
 				<details
-					class="px-4 py-3 border-2 border-blue-gray-700 mb-4 rounded-md">
+					class="px-4 py-3 mb-4 rounded-md focus-within:ring-2 ring-emerald-500 ring-opacity-50 ring-offset-0 focus-within:outline-none bg-blue-gray-800">
 					<summary
-						class="flex w-full justify-between items-center cursor-pointer">
+						class="flex w-full justify-between items-center cursor-pointer focus:outline-none">
 						<i class="gg-chevron-right-o"></i>
 						<span class="mr-auto">Font Family</span>
 						<a
-							class=""
+							class="focus:outline-none focus:bg-blue-gray-900 rounded-full p-2 text-blue-gray-500"
 							href="https://fontsource.org/fonts/abeezee"
-							target="_blank">
+							target="_blank"
+							rel="noopener">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
