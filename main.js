@@ -1,30 +1,22 @@
 import Fuse from "fuse.js";
 import "virtual:windi.css";
 
-// todo update threshold
-// todo make efficient
-// todo sync query param with input
-// todo empty search results
-// todo responsive design
 // todo pre-search filtering available
-// todo init - loading fonts message
 // todo add opensearch spec
-// todo handle fetch exception
 // todo change search item UI
-// todo fix input delay from url query
-// todo rerun search on page change (back or forward)
 // todo refactor
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const button = document.querySelector("button");
-const output = document.querySelector(".output");
+const output = document.querySelector("#output");
 
 let fontList = [],
 	fonts = "",
-	searchResults = [],
-	searchQuery = "";
+	urlParam = "",
+	apiUrl = "https://api.fontsource.org/v1/fopnts";
 
+// Fuse.js specific class and function to create fuzzy search queries
 class Query {
 	constructor(name, value) {
 		this[name] = value;
@@ -42,34 +34,54 @@ const createSearchQuery = (query) => {
 	return queryList;
 };
 
+// searches fonts and returns results
 const searchFonts = (query) => {
-	searchQuery = query.trim();
-
-	if (!searchQuery) {
-		return;
+	if (!query || !query.trim()) {
+		return [];
 	}
 
+	let searchQuery = query.trim();
+
 	const fuse = new Fuse(fontList, {
-		threshold: 0.3,
+		threshold: 0.2,
 		keys: ["family"]
 	});
 
-	searchResults = [];
-	searchResults = fuse
+	return fuse
 		.search({
 			$or: createSearchQuery(searchQuery)
 		})
 		.map((el) => el.item);
 };
 
-const populateResults = (results) => {
+// makes search and populates results
+const populateResults = (query) => {
+	// null query string
+	if (query === null) {
+		output.innerHTML = "";
+		return;
+	}
+
+	let searchResults = searchFonts(query);
+
+	// empty results
+	if (searchResults.length === 0) {
+		output.innerHTML = `
+			<div
+				class="bg-blue-gray-800 text rounded-md text-center w-full mx-auto my-8 p-6">
+				No matches found.
+			</div>
+		`;
+		return;
+	}
+
 	fonts = "";
 
-	results.forEach((res) => {
+	searchResults.forEach((res) => {
 		fonts += `
-		<details
-		class="px-4 py-3 bg-blue-gray-800 mb-4 rounded-md focus-within:ring-2 ring-emerald-500 ring-opacity-50 ring-offset-0 rounded-md focus-within:outline-none">
-		<summary
+			<details
+				class="px-4 py-3 bg-blue-gray-800 mb-4 rounded-md focus-within:ring-2 ring-emerald-500 ring-opacity-50 ring-offset-0 rounded-md focus-within:outline-none">
+				<summary
 					class="flex w-full justify-between items-center cursor-pointer focus:outline-none">
 					<i class="gg-chevron-right-o"></i>
 					<span class="mr-auto">${res.family}</span>
@@ -108,39 +120,60 @@ const populateResults = (results) => {
 	});
 };
 
-let parsedUrl = new URL(window.location.href);
-let urlQuery = parsedUrl.searchParams.get("q");
+// get url parameters if any exist and reset input
+const init = () => {
+	input.value = "";
+	let parsedUrl = new URL(window.location.href);
+	urlParam = parsedUrl.searchParams.get("q");
+	input.value = urlParam ? urlParam : "";
+};
 
-fetch("https://api.fontsource.org/v1/fonts")
+init();
+
+fetch(apiUrl)
 	.then((res) => {
 		if (res.ok) return res.json();
 		throw new Error("Network response was not ok.");
 	})
 	.then((data) => {
 		fontList = data.slice();
+
+		// make UI accessible after fonts are loaded
 		input.removeAttribute("disabled");
 		button.removeAttribute("disabled");
+		input.setAttribute("placeholder", "Enter font name");
 
-		if (urlQuery) {
-			input.value = urlQuery;
-			searchFonts(urlQuery);
-			populateResults(searchResults);
+		// if url has a url parameter, fill input and make search
+		if (urlParam) {
+			input.value = urlParam;
+			populateResults(urlParam);
 		}
 	})
 	.catch((err) => {
-		console.log("An error has occured.");
+		output.innerHTML = `
+			<div
+				class="bg-blue-gray-800 text rounded-md text-center w-full mx-auto my-8 p-6">
+				An error has occured when loading the fonts. 
+				<br/>
+				Please try again in a few seconds.
+			</div>
+		`;
+		input.setAttribute("placeholder", "An error has occured.");
 	});
-
-input.addEventListener("keypress", (e) => {});
 
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	// update url parameters with new search query
-	parsedUrl = new URLSearchParams(window.location.search);
+	// update url parameter with new search query
+	let parsedUrl = new URLSearchParams(window.location.search);
 	parsedUrl.set("q", input.value);
 	window.history.pushState({}, "", `?${parsedUrl}`);
 
-	searchFonts(input.value);
-	populateResults(searchResults);
+	populateResults(input.value);
+});
+
+window.addEventListener("popstate", (e) => {
+	init();
+
+	populateResults(urlParam);
 });

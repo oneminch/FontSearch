@@ -2,12 +2,18 @@
 
 * {
 	font-family: "Inter", serif;
+	user-select: none;
+}
+
+input,
+code {
+	user-select: text;
 }
 
 code {
 	font-family: "Space Mono", monospace !important;
 	font-size: 0.9rem !important;
-	@apply px-3 py-4 mt-2 w-full h-6 font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100;
+	@apply py-2 px-3 mt-2 w-full min-h-5 font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100;
 }
 
 /* Icon */
