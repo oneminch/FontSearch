@@ -3,5 +3,5 @@
 	<Description>Search Fontsource fonts</Description>
 	<InputEncoding>UTF-8</InputEncoding>
 	<Image width="16" height="16" type="image/x-icon">https://github.com/fontsource/fontsource/raw/main/website/public/fontsource-logo.png</Image>
-	<Url type="text/html" method="get" template="http://localhost:5173/?q={searchTerms}" />
+	<Url type="text/html" method="get" template="https://fontsrc.vercel.app/?q={searchTerms}" />
 </OpenSearchDescription>

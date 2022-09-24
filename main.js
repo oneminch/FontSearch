@@ -2,8 +2,9 @@ import Fuse from "fuse.js";
 import "virtual:windi.css";
 
 // todo pre-search filtering available
-// todo add opensearch spec
 // todo change search item UI
+// opensearch icon
+// disabled pointer
 // todo refactor
 
 const form = document.querySelector("form");
