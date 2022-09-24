@@ -3,8 +3,6 @@ import "virtual:windi.css";
 
 // todo pre-search filtering available
 // todo change search item UI
-// opensearch icon
-// disabled pointer
 // todo refactor
 
 const form = document.querySelector("form");
@@ -15,7 +13,7 @@ const output = document.querySelector("#output");
 let fontList = [],
 	fonts = "",
 	urlParam = "",
-	apiUrl = "https://api.fontsource.org/v1/fopnts";
+	apiUrl = "https://api.fontsource.org/v1/fonts";
 
 // Fuse.js specific class and function to create fuzzy search queries
 class Query {
