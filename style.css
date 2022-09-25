@@ -16,6 +16,12 @@ code {
 	@apply py-2 px-3 mt-2 w-full min-h-5 font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100;
 }
 
+a[href="https://fontsource.org/fonts" ]
+{
+	text-decoration: underline;
+	@apply underline-emerald-600 underline-3;
+}
+
 /* Icon */
 .gg-chevron-right-o {
 	box-sizing: border-box;
