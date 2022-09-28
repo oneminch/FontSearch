@@ -170,16 +170,23 @@ const populateResults = () => {
 						</a>
 					</div>
 					<div class="tags">
-						<span>${res.category}</span>
+						<span title="Category">${res.category}</span>
 						${res.variable ? "<span>variable</span>" : ""}
-						<span>${res.version}</span>
+						<span title="Version">${res.version}</span>
 					</div>
 				</summary>
-				<code>npm install @fontsource/${res.id}</code>
-				<code>import "@fontsource/${res.id}"</code>
-				<code>body { font-family: "${res.family}"${defaultFontFamily(
-			res.category
-		)}; }</code>
+				<code title="Terminal instructions">
+					<img src='/cli.svg'>
+					npm install @fontsource/${res.id}
+				</code>
+				<code title="JS entry instructions">
+					<img src='/js.svg'>
+					import "@fontsource/${res.id}"
+				</code>
+				<code title="CSS instructions">
+					<img src='/css.svg'>
+					body { font-family: "${res.family}"${defaultFontFamily(res.category)}; }
+				</code>
 			</details>
     `;
 
