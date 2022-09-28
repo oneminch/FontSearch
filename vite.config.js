@@ -1,5 +1,7 @@
 import WindiCSS from "vite-plugin-windicss";
+import { defineConfig } from "vite";
 
-export default {
-	plugins: [WindiCSS()]
-};
+export default defineConfig({
+	plugins: [WindiCSS()],
+	base: "/font-search/"
+});
