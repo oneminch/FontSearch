@@ -30,6 +30,7 @@ let fullFontList = [],
 	currCategory = "",
 	isVariableOnly = false,
 	disabledState = true,
+	baseUrl = `${window.location.origin}${window.location.pathname}`,
 	apiUrl = "https://api.fontsource.org/v1/fonts";
 
 // get default font type for css
@@ -251,7 +252,7 @@ form.addEventListener("submit", (e) => {
 
 // rerun search on form reset
 form.addEventListener("reset", () => {
-	window.history.pushState({}, "", window.location.origin);
+	window.history.pushState({}, "", baseUrl);
 	reset();
 
 	populateResults();
