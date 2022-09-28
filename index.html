@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="search"
+			type="application/opensearchdescription+xml"
+			title="Fontsource Search"
+			href="/opensearch.xml" />
+		<title>Font Search</title>
+		<script type="module" crossorigin src="/assets/index.437a62ef.js"></script>
+		<link rel="stylesheet" href="/assets/index.e4d01919.css">
+	</head>
+	<body class="bg-blue-gray-900 text-blue-gray-300 min-w-sm">
+		<div
+			id="app"
+			class="font-semibold w-full px-5 lg:w-2/3 mx-auto max-w-640px">
+			<div
+				class="rounded-md text-center w-full text-center mx-auto my-14 text-xl">
+				Search fonts available on
+				<a href="https://fontsource.org/fonts" title="Fontsource fonts page"
+					>Fontsource</a
+				>.
+			</div>
+			<form class="w-full mx-auto mb-8">
+				<div class="flex items-center justify-between w-full">
+					<!-- search input -->
+					<input
+						type="text"
+						id="search-box"
+						class="rounded-md w-full text-base h-10 px-4 mr-2 border-2 border-blue-gray-700 bg-transparent outline-none focus:ring-2 ring-emerald-600 ring-offset-0 disabled:cursor-not-allowed"
+						placeholder="Loading fonts..."
+						disabled
+						required />
+					<!-- Search button -->
+					<button
+						type="submit"
+						title="Search"
+						class="flex items-center justify-center bg-blue-gray-700 h-10 w-10 flex-shrink-0 rounded-md focus:outline-none focus:ring-2 ring-emerald-600 ring-offset-0 disabled:cursor-not-allowed"
+						disabled>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="w-6 h-6">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+						</svg>
+					</button>
+				</div>
+
+				<div class="flex items-center justify-between sm:justify-start w-full">
+					<!-- category dropdown -->
+					<label
+						class="w-32 h-10 cursor-pointer relative rounded-md my-4 mr-1 sm:mr-2 flex items-center justify-center bg-blue-gray-700 flex-shrink-0 text-blue-gray-300">
+						<select
+							title="Choose a category"
+							name="category-dropdown"
+							class="text-sm h-10 flex-shrink-0 cursor-pointer block appearance-none w-full font-semibold px-2 rounded-md leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-transparent z-10 disabled:cursor-not-allowed"
+							disabled>
+							<option value="" selected>Category</option>
+						</select>
+						<!-- JS rendered options list -->
+
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="w-6 h-6 absolute right-1 flex-shrink-0 z-0"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+						</svg>
+					</label>
+
+					<!-- variable font support toggle -->
+					<label
+						class="toggle-container disabled"
+						title="Show only variable fonts">
+						<span class="toggle-label">Variable Only</span>
+						<input type="checkbox" class="sr-only" disabled />
+						<span class="switch"></span>
+					</label>
+
+					<!-- form reset button -->
+					<button
+						type="reset"
+						title="Reset search box and filters"
+						class="flex items-center justify-center bg-blue-gray-700 h-10 w-10 flex-shrink-0 rounded-md focus:outline-none focus:ring-2 ring-emerald-600 ring-offset-0 disabled:cursor-not-allowed"
+						disabled>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="w-6 h-6">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+						</svg>
+					</button>
+				</div>
+			</form>
+			<div id="output">
+				<div class="non-result">Press <code>/</code> to focus search box.</div>
+				<!-- <div class="non-result">
+					No matches found.
+				</div> -->
+				<!-- <details open>
+					<summary>
+						<div class="result-header">
+							<i class="gg-chevron-right"></i>
+							<span>Font Family</span>
+
+							<a
+								href="https://fontsource.org/fonts/abeezee"
+								target="_blank"
+								rel="noopener">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="2"
+									stroke="currentColor"
+									class="w-5 h-5">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+								</svg>
+							</a>
+						</div>
+						<div class="tags">
+							<span>handwriting</span>
+							<span>variable</span>
+							<span>v1.9</span>
+						</div>
+					</summary>
+					<code>yarn add @fontsource/font-family</code>
+					<code>import "@fontsource/font-family"</code>
+					<code>body { font-family: "font-family", serif; }</code>
+				</details> -->
+			</div>
+		</div>
+		
+	</body>
+</html>
