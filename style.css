@@ -1,4 +1,4 @@
-@import url("https://fonts.bunny.net/css?family=space-mono:400|Inter:400");
+@import url("https://fonts.bunny.net/css?family=jetbrains-mono:400|Inter:400");
 
 * {
 	font-family: "Inter", serif;
@@ -6,14 +6,8 @@
 }
 
 input,
-code {
+details > code {
 	user-select: text;
-}
-
-code {
-	font-family: "Space Mono", monospace !important;
-	font-size: 0.9rem !important;
-	@apply py-2 px-3 mt-2 w-full min-h-5 font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100;
 }
 
 a[href="https://fontsource.org/fonts" ]
@@ -22,34 +16,131 @@ a[href="https://fontsource.org/fonts" ]
 	@apply underline-emerald-600 underline-3;
 }
 
-/* Icon */
-.gg-chevron-right-o {
+details {
+	@apply px-4 py-3 mb-4 rounded-md focus-within:ring-2 focus-within:ring-emerald-600 focus-within:ring-offset-0 focus-within:outline-none bg-blue-gray-800;
+}
+
+summary {
+	@apply flex w-full flex-col justify-between items-start cursor-pointer focus:outline-none list-none;
+}
+
+summary .result-header:first-of-type {
+	@apply flex w-full justify-between items-center cursor-pointer focus:outline-none mb-1;
+}
+
+summary .result-header > span {
+	@apply mr-auto;
+}
+
+summary .result-header > a {
+	@apply focus:outline-none focus:bg-blue-gray-900 rounded-full p-2 text-blue-gray-500;
+}
+
+summary .tags > span {
+	@apply bg-blue-gray-700 text-xs px-2 py-1 rounded-full;
+}
+
+/* Unset details disclosure arrow icon */
+details > summary::marker {
+	display: none;
+}
+
+details > summary::-webkit-details-marker {
+	display: none;
+}
+
+details > code {
+	font-family: "JetBrains Mono", monospace !important;
+	font-size: 0.9rem !important;
+	@apply relative min-h-7 py-1 px-3 pl-8 mt-2 w-full font-normal flex items-center justify-start rounded-md bg-blue-gray-900 text-blue-gray-100 overflow-hidden first-of-type:mt-3 before:(absolute top-0 left-0 h-full w-6 bg-blue-gray-100 p-1 flex items-center justify-center);
+}
+
+details > code:first-of-type::before {
+	content: url("./public/cli.svg");
+}
+
+details > code:nth-of-type(2)::before {
+	content: url("./public/js.svg");
+}
+
+details > code:nth-of-type(3)::before {
+	content: url("./public/css.svg");
+}
+
+option {
+	@apply bg-blue-gray-700 text-blue-gray-300;
+}
+
+#output > .non-result {
+	@apply bg-blue-gray-800 rounded-md text-center w-full mx-auto my-8 p-6;
+}
+
+#output > .non-result code {
+	@apply border-1 border-b-3 border-blue-gray-700 rounded-md px-2 py-1 mx-1 text-sm;
+}
+
+/* CSS for Toggle (reused from another project I did) */
+
+.toggle-container {
+	@apply flex items-center justify-between text-sm rounded-md flex-shrink-0 w-41 h-10 bg-blue-gray-700 px-3 mr-1 sm:mr-2;
+}
+
+.toggle-container > * {
+	@apply flex-shrink-0;
+}
+
+.toggle-container:focus-within {
+	@apply outline-none ring-2 ring-emerald-600 ring-opacity-50 ring-offset-0;
+}
+
+.switch {
+	@apply h-5 px-1 rounded-full w-8 border-blue-gray-500 flex items-center transition-colors bg-blue-gray-500 cursor-pointer;
+}
+
+.switch::before {
+	content: "";
+	@apply rounded-full w-3 h-3 bg-blue-gray-50 transition-transform duration-100 ease-in-out shadow-lg;
+}
+
+input:checked + .switch {
+	@apply bg-emerald-500;
+}
+
+input:checked + .switch::before {
+	@apply bg-blue-gray-50 transform translate-x-full;
+}
+
+.toggle-container.disabled {
+	@apply cursor-not-allowed;
+}
+
+/* details disclosure marker icon */
+
+.gg-chevron-right {
 	box-sizing: border-box;
 	position: relative;
 	display: block;
-	transform: scale(var(--ggs, 1));
 	width: 22px;
 	height: 22px;
-	border: 2px solid;
+	border: 2px solid transparent;
 	border-radius: 100px;
-	margin-right: 0.75rem;
-	@apply text-blue-gray-500;
+	@apply text-blue-gray-500 mr-2;
 }
 
-.gg-chevron-right-o::after {
+.gg-chevron-right::after {
 	content: "";
 	display: block;
 	box-sizing: border-box;
 	position: absolute;
-	width: 6px;
-	height: 6px;
+	width: 10px;
+	height: 10px;
 	border-bottom: 2px solid;
 	border-right: 2px solid;
 	transform: rotate(-45deg);
-	left: 5px;
-	top: 6px;
+	right: 6px;
+	top: 4px;
 }
 
-details[open] .gg-chevron-right-o {
+details[open] .gg-chevron-right {
 	transform: rotate(90deg);
 }
