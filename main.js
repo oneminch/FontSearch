@@ -154,7 +154,7 @@ const populateResults = () => {
 						<a
 							title="Fontsource Font URL"
 							href="https://fontsource.org/fonts/${res.id}"
-							target="_blank" rel="noopener">
+							target="_blank" rel="noopener noreferrer">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
