@@ -2,6 +2,6 @@
 	<ShortName>Fontsource Search</ShortName>
 	<Description>Search Fontsource fonts</Description>
 	<InputEncoding>UTF-8</InputEncoding>
-	<Image width="16" height="16" type="image/x-icon">https://fontsrc.vercel.app/favicon.svg</Image>
-	<Url type="text/html" method="get" template="https://fontsrc.vercel.app/?q={searchTerms}" />
+	<Image width="16" height="16" type="image/x-icon">https://oneminch.dev/font-search/favicon.svg</Image>
+	<Url type="text/html" method="get" template="https://oneminch.dev/font-search/?q={searchTerms}" />
 </OpenSearchDescription>

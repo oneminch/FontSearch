@@ -176,15 +176,15 @@ const populateResults = () => {
 					</div>
 				</summary>
 				<code title="Terminal instructions">
-					<img src='/cli.svg'>
+					<img src='/cli-icon.svg'>
 					npm install @fontsource/${res.id}
 				</code>
 				<code title="JS entry instructions">
-					<img src='/js.svg'>
+					<img src='/js-icon.svg'>
 					import "@fontsource/${res.id}"
 				</code>
 				<code title="CSS instructions">
-					<img src='/css.svg'>
+					<img src='/css-icon.svg'>
 					body { font-family: "${res.family}"${defaultFontFamily(res.category)}; }
 				</code>
 			</details>
