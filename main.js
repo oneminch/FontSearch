@@ -13,6 +13,8 @@ const variableCheckbox = document.querySelector("input[type='checkbox']");
 const toggleContainer = document.querySelector(".toggle-container");
 const output = document.querySelector("#output");
 
+const repoName = "font-search";
+
 // global variables
 const categories = [
 	"sans-serif",
@@ -176,15 +178,15 @@ const populateResults = () => {
 					</div>
 				</summary>
 				<code title="Terminal instructions">
-					<img src='/cli-icon.svg'>
+					<img src='/${repoName}/cli-icon.svg'>
 					npm install @fontsource/${res.id}
 				</code>
 				<code title="JS entry instructions">
-					<img src='/js-icon.svg'>
+					<img src='/${repoName}/js-icon.svg'>
 					import "@fontsource/${res.id}"
 				</code>
 				<code title="CSS instructions">
-					<img src='/css-icon.svg'>
+					<img src='/${repoName}/css-icon.svg'>
 					body { font-family: "${res.family}"${defaultFontFamily(res.category)}; }
 				</code>
 			</details>
