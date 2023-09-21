@@ -11,6 +11,8 @@ Search fonts available on Fontsource
 - [x] Can be added as a search engine (OpenSearch)
 - [x] Shareable search results URL
 
+![Screenshot](/public/screenshot.png)
+
 ### Credits
 
 Made with:
