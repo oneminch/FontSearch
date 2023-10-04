@@ -3,5 +3,5 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
 	plugins: [WindiCSS()],
-	base: "/font-search/"
+	base: "/FontSearch/"
 });
