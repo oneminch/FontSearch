@@ -13,7 +13,7 @@ const variableCheckbox = document.querySelector("input[type='checkbox']");
 const toggleContainer = document.querySelector(".toggle-container");
 const output = document.querySelector("#output");
 
-const repoName = "font-search";
+const repoName = "FontSearch";
 
 // global variables
 const categories = [
