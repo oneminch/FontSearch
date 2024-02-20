@@ -2,6 +2,6 @@
 	<ShortName>Fontsource Search</ShortName>
 	<Description>Search Fontsource fonts</Description>
 	<InputEncoding>UTF-8</InputEncoding>
-	<Image width="16" height="16" type="image/x-icon">https://oneminch.github.io/font-search/favicon.svg</Image>
+	<Image width="16" height="16" type="image/x-icon">https://oneminch.github.io/FontSearch/favicon.svg</Image>
 	<Url type="text/html" method="get" template="https://oneminch.github.io/FontSearch/?q={searchTerms}" />
 </OpenSearchDescription>
